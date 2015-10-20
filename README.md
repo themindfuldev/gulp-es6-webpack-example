@@ -10,4 +10,4 @@ Running ```gulp``` will:
 2. Run Mocha unit tests
 3. Package with Webpack (dedupe + uglify)
 
-See it live: run ```gulp webpack-dev-server``` and open http://localhost:8080/public/
+See it live: run ```gulp webpack-dev-server``` and open [http://localhost:8080/public/](http://localhost:8080/public/) and see your console.
