@@ -2,6 +2,7 @@ import path from 'path';
 
 module.exports = {
 	cache: true,
+	devtool: 'source-map',
 	entry: {
 	  preload: './dist/main.js'
 	},
