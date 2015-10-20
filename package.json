@@ -1,0 +1,31 @@
+{
+  "name": "gulp-es6-webpack-example",
+  "version": "0.0.1",
+  "description": "Sample setup with Gulp, Babel, Mocha and Webpack",
+  "main": "src/main.js",
+  "scripts": {
+    "build": "gulp",
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tiagorg/gulp-es6-webpack-example.git"
+  },
+  "keywords": [
+    "gulp",
+    "es6",
+    "babel",
+    "webpack",
+    "mocha",
+    "chai"
+  ],
+  "author": "Tiago Garcia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tiagorg/gulp-es6-webpack-example/issues"
+  },
+  "homepage": "https://github.com/tiagorg/gulp-es6-webpack-example#readme",
+  "devDependencies": {
+    "gulp-util": "^3.0.7"
+  }
+}
