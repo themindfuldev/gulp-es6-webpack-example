@@ -3,11 +3,11 @@ import path from 'path';
 module.exports = {
 	cache: true,
 	entry: {
-	  app: './dist/main.js'
+	  preload: './dist/main.js'
 	},
 	output: {
 		path: path.join(__dirname, 'dist'),
-		publicPath: 'public',
+		publicPath: '../dist/',
 		filename: '[name].bundle.js',
 		chunkFilename: '[id].bundle.js'
 	},

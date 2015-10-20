@@ -44,7 +44,7 @@ gulp.task('webpack', ['test'], function(callback) {
   });
 });
 
-gulp.task('webpack-dev-server', ['webpack'], function(callback) {
+gulp.task('server', ['webpack'], function(callback) {
 	// modify some webpack config options
 	var myConfig = Object.create(webpackConfig);
 	myConfig.devtool = 'eval';
