@@ -6,7 +6,7 @@ import webpack from 'webpack';
 import webpackConfig from './webpack.config.babel';
 import WebpackDevServer from 'webpack-dev-server';
 
-gulp.task('default', ['babel', 'test', 'webpack']);
+gulp.task('default', ['webpack']);
 
 gulp.task('babel', () => {
   return gulp.src('src/*.js')
@@ -14,7 +14,7 @@ gulp.task('babel', () => {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('test', () => {
+gulp.task('test', ['babel'], () => {
   return gulp.src('test/*.js')
     .pipe(mocha())
     .on('error', () => {
@@ -26,11 +26,11 @@ gulp.task('watch-test', () => {
   return gulp.watch(['src/**', 'test/**'], ['test']);
 });
 
-gulp.task('webpack', function(callback) {
+gulp.task('webpack', ['test'], function(callback) {
   var myConfig = Object.create(webpackConfig);
   myConfig.plugins = myConfig.plugins.concat(
-	new webpack.optimize.DedupePlugin(),
-	new webpack.optimize.UglifyJsPlugin()
+		new webpack.optimize.DedupePlugin(),
+		new webpack.optimize.UglifyJsPlugin()
   );
 
   // run webpack
@@ -42,4 +42,23 @@ gulp.task('webpack', function(callback) {
     }));
     callback();
   });
+});
+
+gulp.task('webpack-dev-server', ['webpack'], function(callback) {
+	// modify some webpack config options
+	var myConfig = Object.create(webpackConfig);
+	myConfig.devtool = 'eval';
+	myConfig.debug = true;
+
+	// Start a webpack-dev-server
+	new WebpackDevServer(webpack(myConfig), {
+		publicPath: '/' + myConfig.output.publicPath,
+		stats: {
+			colors: true
+		},
+		hot: true
+	}).listen(8080, 'localhost', function(err) {
+		if(err) throw new gutil.PluginError('webpack-dev-server', err);
+		gutil.log('[webpack-dev-server]', 'http://localhost:8080/webpack-dev-server/index.html');
+	});
 });

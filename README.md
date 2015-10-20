@@ -9,3 +9,5 @@ Running ```gulp``` will:
 1. Transpile ES6 code with Babel
 2. Run Mocha unit tests
 3. Package with Webpack (dedupe + uglify)
+
+See it live: run ```gulp webpack-dev-server``` and open http://localhost:8080/public/
