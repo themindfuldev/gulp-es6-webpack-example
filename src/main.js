@@ -9,7 +9,7 @@ document.getElementById('content').innerHTML += `<br/>${myWolf.bark()}`;
 
 document.getElementById('loadCat').addEventListener('click', (e) => {
 	require.ensure([], () => {
-		var Cat = require('./cat').Cat;
+		var Cat = require('./cat');
 
 		var myCat = new Cat('Bugsy');
 		document.getElementById('content').innerHTML += `<br/>${myCat.meow()}`;

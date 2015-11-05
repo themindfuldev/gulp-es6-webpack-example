@@ -2,13 +2,24 @@
 var getBarkStyle = function(isHowler) {
   return isHowler? 'woooooow!': 'woof, woof!';
 };
-export function Dog(name, breed) {
-  this.bark = function() {
-    return name + ': ' + getBarkStyle(breed === 'husky');
+
+export class Dog {
+  constructor(name, breed) {
+  	this.name = name;
+  	this.breed = breed;
+  }
+
+  bark() {
+    return `${this.name}: ${getBarkStyle(this.breed === 'husky')}`;
   };
 }
-export function Wolf(name) {
-  this.bark = function() {
-    return name + ': ' + getBarkStyle(true);
+
+export class Wolf {
+  constructor(name) {
+  	this.name = name;
+  }
+
+  bark() {
+    return `${this.name}: ${getBarkStyle(true)}`;
   };
 }
