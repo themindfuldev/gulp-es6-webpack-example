@@ -11,7 +11,7 @@ gulp.task('default', ['webpack']);
 gulp.task('babel', () => {
   return gulp.src('src/*.js')
     .pipe(babel())
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('target'));
 });
 
 gulp.task('test', ['babel'], () => {
@@ -28,10 +28,10 @@ gulp.task('watch-test', () => {
 
 gulp.task('webpack', ['test'], function(callback) {
   var myConfig = Object.create(webpackConfig);
-  myConfig.plugins = myConfig.plugins.concat(
+  myConfig.plugins = [
 		new webpack.optimize.DedupePlugin(),
 		new webpack.optimize.UglifyJsPlugin()
-  );
+  ];
 
   // run webpack
   webpack(myConfig, function(err, stats) {

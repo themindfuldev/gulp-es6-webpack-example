@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { Dog, Wolf } from '../dist/zoo';
+import { Dog, Wolf } from '../target/zoo';
 
 describe('the zoo module', () => {
 	it('should instantiate a regular dog', () => {

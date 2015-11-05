@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import Cat from '../dist/cat';
+import Cat from '../target/cat';
 
 describe('the cat module', () => {
 	it('should instantiate a cat', () => {
