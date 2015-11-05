@@ -7,7 +7,7 @@ document.getElementById('content').innerHTML += myDog.bark();
 var myWolf = new Wolf('Direwolf');
 document.getElementById('content').innerHTML += `<br/>${myWolf.bark()}`;
 
-document.getElementById('loadCat').addEventListener('click', (e) => {
+document.getElementById('loadCat').addEventListener('click', e => {
 	require.ensure([], () => {
 		var Cat = require('./cat');
 
